@@ -18,3 +18,8 @@ All you have to do is run:
     
 And the layout should be compiled and the hex file will be in the
 qmk_firmware folder.
+
+If you do not have some required dependencies, you can use [homebrew](https://brew.sh) to
+install them using the following command:
+
+    $ brew bundle
