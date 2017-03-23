@@ -9,5 +9,6 @@ export LAYOUT_FOLDER_NAME=layout
 export BUILD_FOLDER=qmk_firmware
 
 all:
+	brew bundle --no-upgrade
 	./createSymLink.sh
 	./buildLayout.sh
