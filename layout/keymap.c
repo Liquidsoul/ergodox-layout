@@ -158,9 +158,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * .--------+------+------+------+------+------+------.         .------+------+------+------+------+------+--------. *
  * | QWERTY |      |      |      |      |      |      |         |      |      |      |      |      |      |        | *
  * +--------+------+------+------+------+------+------+         +------+------+------+------+------+------+--------+ *
- * |        |      | Lclk | MsUp | Rclk |      |      |         |      |      | HOME |  UP  | END  |      |        | *
+ * |        |      | Lclk | MsUp | Rclk |      |      |         |      | PGUP | HOME |  UP  | END  |      |        | *
  * +--------+------+------+------+------+------+      |         |      +------+------+------+------+------+--------+ *
- * |        |      |MsLeft|MsDown|MsRght|      +------+         +------+      | LEFT | DOWN |RIGHT |      |        | *
+ * |        |      |MsLeft|MsDown|MsRght|      +------+         +------+ PGDN | LEFT | DOWN |RIGHT |      |        | *
  * +--------+------+------+------+------+------+      |         |      +------+------+------+------+------+--------+ *
  * |        |      |      |      |      |      |      |         |      | Sleep| Prev | Play | Next |      |        | *
  * '-+------+------+------+------+------+------+------'         '------+------+------+------+------+------+------+-' *
@@ -188,8 +188,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                               KC_TRNS, KC_TRNS, KC_TRNS,
     // right hand
        KC_TRNS,  KC_TRNS,           KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS,  KC_TRNS,           KC_HOME, KC_UP,   KC_END,  KC_TRNS, KC_TRNS,
-                 KC_TRNS,           KC_LEFT, KC_DOWN, KC_RGHT, KC_TRNS, KC_TRNS,
+       KC_TRNS,  KC_PGUP,           KC_HOME, KC_UP,   KC_END,  KC_TRNS, KC_TRNS,
+                 KC_PGDN,           KC_LEFT, KC_DOWN, KC_RGHT, KC_TRNS, KC_TRNS,
        KC_TRNS,  S(LCTL(KC_POWER)), KC_MPRV, KC_MPLY, KC_MNXT, KC_TRNS, KC_TRNS,
                                     KC_VOLU, KC_VOLD, KC_MUTE, KC_TRNS, KC_TRNS,
        KC_TRNS, KC_TRNS,
