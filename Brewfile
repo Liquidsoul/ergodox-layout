@@ -1,5 +1,1 @@
-tap 'osx-cross/avr'
-brew 'avr-libc'
-brew 'dfu-programmer'
-brew 'dfu-util'
-cask 'teensy'
+brew 'docker'
