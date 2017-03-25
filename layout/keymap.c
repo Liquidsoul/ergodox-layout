@@ -6,6 +6,7 @@
 #define QWERTY 0 // qwerty keys
 #define QWERTY_SYMB 1 // qwerty symbols
 #define MDIA 2 // media keys
+#define GAME 3 // games mapping
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap: Basic QWERTY layer
@@ -106,7 +107,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * .--------+------+------+------+------+------+------.         .------+------+------+------+------+------+--------. *
  * | RESET  |      |      |      |      |      |      |         |      |      |      |      |      |      | RESET  | *
  * +--------+------+------+------+------+------+------+         +------+------+------+------+------+------+--------+ *
- * |        |      | Lclk | MsUp | Rclk |      |      |         |      | PGUP | HOME |  UP  | END  |      |        | *
+ * |        |      | Lclk | MsUp | Rclk |      |      |         | ^GAME| PGUP | HOME |  UP  | END  |      |        | *
  * +--------+------+------+------+------+------+      |         |      +------+------+------+------+------+--------+ *
  * |        |      |MsLeft|MsDown|MsRght|      +------+         +------+ PGDN | LEFT | DOWN |RIGHT |      |        | *
  * +--------+------+------+------+------+------+      |         |      +------+------+------+------+------+--------+ *
@@ -136,7 +137,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                               KC_TRNS, KC_TRNS, KC_TRNS,
     // right hand
        KC_TRNS,  KC_TRNS,           KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, RESET,
-       KC_TRNS,  KC_PGUP,           KC_HOME, KC_UP,   KC_END,  KC_TRNS, KC_TRNS,
+       TG(GAME), KC_PGUP,           KC_HOME, KC_UP,   KC_END,  KC_TRNS, KC_TRNS,
                  KC_PGDN,           KC_LEFT, KC_DOWN, KC_RGHT, KC_TRNS, KC_TRNS,
        KC_TRNS,  S(LCTL(KC_POWER)), KC_MPRV, KC_MPLY, KC_MNXT, KC_TRNS, KC_TRNS,
                                     KC_VOLU, KC_VOLD, KC_MUTE, KC_TRNS, KC_TRNS,
@@ -144,6 +145,53 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,
        KC_TRNS, KC_TRNS, KC_WBAK
 ),
+/* Keymap: game layer
+*********************************************************************************************************************
+*                                                                                                                   *
+* .--------+------+------+------+------+------+------.         .------+------+------+------+------+------+--------. *
+* |   =    |   1  |   2  |   3  |   4  |   5  |  6   |         |      |      |      |      |      |      |        | *
+* +--------+------+------+------+------+------+------+         +------+------+------+------+------+------+--------+ *
+* | Tab    |   Q  |   W  |   E  |   R  |   T  |  Y   |         |^GAME |      |      |      |      |      |        | *
+* +--------+------+------+------+------+------+      |         |      +------+------+------+------+------+--------+ *
+* | Esc    |   A  |   S  |   D  |   F  |   G  +------+         +------+      |      |      |      |      |        | *
+* +--------+------+------+------+------+------+  N   |         |      +------+------+------+------+------+--------+ *
+* | LShift |   Z  |   X  |   C  |   V  |   B  |      |         |      |      |      |      |      |      |        | *
+* '-+------+------+------+------+------+------+------'         '------+------+------+------+------+------+------+-' *
+*   | Ctrl | Alt  | LGui |   J  |   M  |                                     |      |      |      |      |      |   *
+*   '------+------+------+------+------'                                     '------+------+------+------+------'   *
+*                                       .------+------.       .------+--------.                                     *
+*                                       |      |      |       |      |        |                                     *
+*                                .------+------+------+       +------+--------+------.                              *
+*                                |      |      |      |       |      |        |      |                              *
+*                                | Space| Alt  +------+       +------+        |      |                              *
+*                                |      |      | Ctrl |       |      |        |      |                              *
+*                                '------+------+------'       '------+--------+------'                              *
+*                                                                                                                   *
+*********************************************************************************************************************
+*/
+// If it accepts an argument (i.e, is a function), it doesn't need KC_.
+// Otherwise, it needs KC_*
+[GAME] = KEYMAP(
+        // left hand
+        KC_EQL,  KC_1,    KC_2,    KC_3, KC_4, KC_5, KC_6,
+        KC_TAB,  KC_Q,    KC_W,    KC_E, KC_R, KC_T, KC_Y,
+        KC_ESC,  KC_A,    KC_S,    KC_D, KC_F, KC_G,
+        KC_LSFT, KC_Z,    KC_X,    KC_C, KC_V, KC_B, KC_N,
+        KC_LCTL, KC_LALT, KC_LGUI, KC_J, KC_M,
+                    KC_NO,   KC_NO,
+                             KC_NO,
+            KC_SPC, KC_LALT, KC_LCTL,
+
+        // right hand
+        KC_NO,    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+        TG(GAME), KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+                  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+        KC_NO,    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+                         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+            KC_NO,  KC_NO,
+            KC_NO,
+            KC_NO, KC_NO, KC_NO
+    ),
 };
 
 const uint16_t PROGMEM fn_actions[] = {
@@ -187,6 +235,9 @@ void matrix_scan_user(void) {
             break;
         case MDIA:
             ergodox_right_led_2_on();
+            break;
+        case GAME:
+            ergodox_right_led_3_on();
             break;
         default:
             // none
