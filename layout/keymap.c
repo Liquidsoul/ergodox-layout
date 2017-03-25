@@ -156,7 +156,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *********************************************************************************************************************
  *                                                                                                                   *
  * .--------+------+------+------+------+------+------.         .------+------+------+------+------+------+--------. *
- * | QWERTY |      |      |      |      |      |      |         |      |      |      |      |      |      |        | *
+ * | RESET  |      |      |      |      |      |      |         |      |      |      |      |      |      | RESET  | *
  * +--------+------+------+------+------+------+------+         +------+------+------+------+------+------+--------+ *
  * |        |      | Lclk | MsUp | Rclk |      |      |         |      | PGUP | HOME |  UP  | END  |      |        | *
  * +--------+------+------+------+------+------+      |         |      +------+------+------+------+------+--------+ *
@@ -178,7 +178,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 // MEDIA AND MOUSE
 [MDIA] = KEYMAP(
-       TG(AZERTY), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       RESET,      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
        KC_TRNS,    KC_TRNS, KC_BTN1, KC_MS_U, KC_BTN2, KC_TRNS, KC_TRNS,
        KC_TRNS,    KC_TRNS, KC_MS_L, KC_MS_D, KC_MS_R, KC_TRNS,
        KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
@@ -187,7 +187,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                 KC_TRNS,
                                               KC_TRNS, KC_TRNS, KC_TRNS,
     // right hand
-       KC_TRNS,  KC_TRNS,           KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS,  KC_TRNS,           KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, RESET,
        KC_TRNS,  KC_PGUP,           KC_HOME, KC_UP,   KC_END,  KC_TRNS, KC_TRNS,
                  KC_PGDN,           KC_LEFT, KC_DOWN, KC_RGHT, KC_TRNS, KC_TRNS,
        KC_TRNS,  S(LCTL(KC_POWER)), KC_MPRV, KC_MPLY, KC_MNXT, KC_TRNS, KC_TRNS,
