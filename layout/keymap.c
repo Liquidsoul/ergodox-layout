@@ -5,61 +5,9 @@
 
 #define QWERTY 0 // qwerty keys
 #define QWERTY_SYMB 1 // qwerty symbols
-#define AZERTY 2 // azerty layer
-#define MDIA 3 // media keys
+#define MDIA 2 // media keys
 
-/*
- * Note that the layouts in comments are for AZERTY OSX keyboard configuration.
- * For example, @ should be < in QWERTY representation.
- */
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-/* Keymap: OSX AZERTY layer
-*********************************************************************************************************************
-*                                                                                                                   *
-* .--------+------+------+------+------+------+------.         .------+------+------+------+------+------+--------. *
-* |   -    |   &  |   é  |   "  |   '  |   (  | LEFT |         | RIGHT|   §  |   è  |   !  |   ç  |   à  |    )   | *
-* +--------+------+------+------+------+------+------+         +------+------+------+------+------+------+--------+ *
-* | Tab    |   A  |   Z  |   E  |   R  |   T  |  L1  |         |  L1  |   Y  |   U  |   I  |   O  |   P  |    `   | *
-* +--------+------+------+------+------+------+      |         |      +------+------+------+------+------+--------+ *
-* | Esc    |   Q  |   S  |   D  |   F  |   G  +------+         +------+   H  |   J  |   K  |   L  |   M  |  LGui  | *
-* +--------+------+------+------+------+------+ Hyper|         |  Meh +------+------+------+------+------+--------+ *
-* | LShift |   W  |   X  |   C  |   V  |   B  |      |         |      |   N  |   ,  |   ;  |   :  |=/Ctrl| RShift | *
-* '-+------+------+------+------+------+------+------'         '------+------+------+------+------+------+------+-' *
-*   | ù /L1|@/Ctrl| Alt  | LGui |   <  |                                     |   ´  |   `  |   ^  |$ / L2|  ~L1 |   *
-*   '------+------+------+------+------'                                     '------+------+------+------+------'   *
-*                                       .------+------.       .------+--------.                                     *
-*                                       |  Alt | LGui |       |  Alt |Ctrl/Esc|                                     *
-*                                .------+------+------+       +------+--------+------.                              *
-*                                |      |      | ^L1  |       | LGui |        |      |                              *
-*                                | BkSp | Del  +------+       +------+  Enter | Space|                              *
-*                                |      |      | Ctrl |       | ^L2  |        |      |                              *
-*                                '------+------+------'       '------+--------+------'                              *
-*                                                                                                                   *
-*********************************************************************************************************************
-*/
-// If it accepts an argument (i.e, is a function), it doesn't need KC_.
-// Otherwise, it needs KC_*
-[AZERTY] = KEYMAP(
-        // left hand
-        FR_MINS,                 FR_AMP,         FR_EACU,  FR_QUOT, FR_APOS, FR_LPRN, KC_LEFT,
-        KC_TAB,                  FR_A,           FR_Z,     KC_E,    KC_R,    KC_T,    KC_TRNS,
-        KC_ESC,                  FR_Q,           KC_S,     KC_D,    KC_F,    KC_G,
-        KC_LSFT,                 FR_W,           KC_X,     KC_C,    KC_V,    KC_B,    ALL_T(KC_NO),
-        FR_UGRV, CTL_T(FR_LESS), KC_LALT,  KC_LGUI, FR_AT,
-                     KC_LALT, KC_LGUI,
-                              KC_TRNS,
-            KC_BSPC, KC_DELT, KC_LCTRL,
-
-        // right hand
-        KC_RGHT,         FR_SECT, FR_EGRV,         FR_EXLM, FR_CCED, FR_AGRV,           FR_RPRN,
-        KC_TRNS, KC_Y,    KC_U,            KC_I,    KC_O,    KC_P,              FR_GRV,
-                         KC_H,    KC_J,            KC_K,    KC_L,    FR_M,              KC_LGUI,
-        MEH_T(KC_NO),    KC_N,    FR_COMM,         FR_SCLN, FR_COLN, CTL_T(FR_EQL),     KC_RSFT,
-                                  S(LALT(FR_AMP)), FR_GRV,  KC_LBRC, LT(MDIA, KC_RBRC), KC_TRNS,
-            KC_LALT,  CTL_T(KC_ESC),
-            KC_LGUI,
-            MO(MDIA), KC_ENT, KC_SPC
-    ),
 /* Keymap: Basic QWERTY layer
 *********************************************************************************************************************
 *                                                                                                                   *
@@ -239,9 +187,6 @@ void matrix_scan_user(void) {
             break;
         case MDIA:
             ergodox_right_led_2_on();
-            break;
-        case AZERTY:
-            ergodox_right_led_3_on();
             break;
         default:
             // none
