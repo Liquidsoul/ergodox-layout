@@ -4,7 +4,7 @@
 #include "keymap_french_osx.h"
 
 #define QWERTY 0 // qwerty keys
-#define QWERTY_SYMB 1 // qwerty symbols
+#define SYMB 1 // qwerty symbols
 #define MDIA 2 // media keys
 #define GAME 3 // games mapping
 
@@ -37,26 +37,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Otherwise, it needs KC_*
 [QWERTY] = KEYMAP(
         // left hand
-        KC_EQL,                 KC_1,           KC_2,    KC_3,    KC_4,       KC_5,    KC_LEFT,
-        KC_TAB,                 KC_Q,           KC_W,    KC_E,    KC_R,       KC_T,    TG(QWERTY_SYMB),
-        KC_ESC,                 KC_A,           KC_S,    KC_D,    KC_F,       KC_G,
-        KC_LSFT,                KC_Z,           KC_X,    KC_C,    KC_V,       KC_B,    ALL_T(KC_NO),
-        LT(QWERTY_SYMB,KC_GRV), CTL_T(KC_QUOT), KC_LALT, KC_LGUI, LALT(KC_C),
+        KC_EQL,          KC_1,           KC_2,    KC_3,    KC_4,       KC_5,    KC_LEFT,
+        KC_TAB,          KC_Q,           KC_W,    KC_E,    KC_R,       KC_T,    TG(SYMB),
+        KC_ESC,          KC_A,           KC_S,    KC_D,    KC_F,       KC_G,
+        KC_LSFT,         KC_Z,           KC_X,    KC_C,    KC_V,       KC_B,    ALL_T(KC_NO),
+        LT(SYMB,KC_GRV), CTL_T(KC_QUOT), KC_LALT, KC_LGUI, LALT(KC_C),
                      KC_LALT, KC_LGUI,
-                              MO(QWERTY_SYMB),
+                              MO(SYMB),
             KC_BSPC, KC_DELT, KC_LCTL,
 
         // right hand
-        KC_RGHT,         KC_6, KC_7,       KC_8,         KC_9,    KC_0,              KC_MINS,
-        TG(QWERTY_SYMB), KC_Y, KC_U,       KC_I,         KC_O,    KC_P,              KC_BSLS,
-                         KC_H, KC_J,       KC_K,         KC_L,    KC_SCLN,           GUI_T(KC_QUOT),
-        MEH_T(KC_NO),    KC_N, KC_M,       KC_COMM,      KC_DOT,  CTL_T(KC_SLSH),    KC_RSFT,
-                               LALT(KC_E), LALT(KC_GRV), KC_LBRC, LT(MDIA, KC_RBRC), MO(QWERTY_SYMB),
+        KC_RGHT,      KC_6, KC_7,       KC_8,         KC_9,    KC_0,              KC_MINS,
+        TG(SYMB),     KC_Y, KC_U,       KC_I,         KC_O,    KC_P,              KC_BSLS,
+                      KC_H, KC_J,       KC_K,         KC_L,    KC_SCLN,           GUI_T(KC_QUOT),
+        MEH_T(KC_NO), KC_N, KC_M,       KC_COMM,      KC_DOT,  CTL_T(KC_SLSH),    KC_RSFT,
+                            LALT(KC_E), LALT(KC_GRV), KC_LBRC, LT(MDIA, KC_RBRC), MO(SYMB),
             KC_LALT,  KC_RCTL,
             KC_LGUI,
             MO(MDIA), KC_ENT, KC_SPC
     ),
-/* Keymap: QWERTY Symbol Layer
+/* Keymap: Symbol Layer
  *********************************************************************************************************************
  *                                                                                                                   *
  * .--------+------+------+------+------+------+------.         .------+------+------+------+------+------+--------. *
@@ -80,8 +80,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                                                                                                   *
  *********************************************************************************************************************
  */
-// QWERTY SYMBOLS
-[QWERTY_SYMB] = KEYMAP(
+// SYMBOLS
+[SYMB] = KEYMAP(
        // left hand
        KC_TRNS, KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_TRNS,
        KC_TRNS, S(KC_COMM), S(KC_DOT),  S(KC_LBRC), S(KC_RBRC), S(KC_BSLS), KC_TRNS,
@@ -230,7 +230,7 @@ void matrix_scan_user(void) {
       // TODO: Make this relevant to the ErgoDox EZ.
         case QWERTY:
             break;
-        case QWERTY_SYMB:
+        case SYMB:
             ergodox_right_led_1_on();
             break;
         case MDIA:
