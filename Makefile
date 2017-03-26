@@ -9,13 +9,16 @@ export KEYBOARD=ergodox
 
 all: ez infinity
 
-ez: layout
+ez: layout prerequisites
 	./buildLayout.sh ${LAYOUT_NAME} ${KEYBOARD} $@
 
-infinity: layout
+infinity: layout prerequisites
 	./buildLayout.sh ${LAYOUT_NAME} ${KEYBOARD} $@
 
 layout:
 	./copyLayout.sh
+
+prerequisites:
+	brew bundle --no-upgrade
 
 .PHONY: all ez infinity layout
