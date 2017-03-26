@@ -60,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *********************************************************************************************************************
  *                                                                                                                   *
  * .--------+------+------+------+------+------+------.         .------+------+------+------+------+------+--------. *
- * |        |  F1  |  F2  |  F3  |  F4  |  F5  |      |         |      |  F6  |  F7  |  F8  |  F9  |  F10 |   F11  | *
+ * | RESET  |  F1  |  F2  |  F3  |  F4  |  F5  |      |         |      |  F6  |  F7  |  F8  |  F9  |  F10 |   F11  | *
  * +--------+------+------+------+------+------+------+         +------+------+------+------+------+------+--------+ *
  * |        |   <  |   >  |   {  |   }  |   |  |      |         |      |   %  |   7  |   8  |   9  |   *  |   F12  | *
  * +--------+------+------+------+------+------+      |         |      +------+------+------+------+------+--------+ *
@@ -83,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // SYMBOLS
 [SYMB] = KEYMAP(
        // left hand
-       KC_TRNS, KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_TRNS,
+       RESET,   KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_TRNS,
        KC_TRNS, S(KC_COMM), S(KC_DOT),  S(KC_LBRC), S(KC_RBRC), S(KC_BSLS), KC_TRNS,
        KC_TRNS, KC_MINS,    S(KC_MINS), S(KC_9),    S(KC_0),    KC_GRV,
        KC_TRNS, S(KC_2),    S(KC_6),    KC_LBRC,    KC_RBRC,    S(KC_GRV),  KC_TRNS,
@@ -105,7 +105,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *********************************************************************************************************************
  *                                                                                                                   *
  * .--------+------+------+------+------+------+------.         .------+------+------+------+------+------+--------. *
- * | RESET  |      |      |      |      |      |      |         |      |      |      |      |      |      | RESET  | *
+ * |        |      |      |      |      |      |      |         |      |      |      |      |      |      | RESET  | *
  * +--------+------+------+------+------+------+------+         +------+------+------+------+------+------+--------+ *
  * |        |      | Lclk | MsUp | Rclk |      |      |         | ^GAME| PGUP | HOME |  UP  | END  |      |        | *
  * +--------+------+------+------+------+------+      |         |      +------+------+------+------+------+--------+ *
@@ -127,7 +127,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 // MEDIA AND MOUSE
 [MDIA] = KEYMAP(
-       RESET,      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
        KC_TRNS,    KC_TRNS, KC_BTN1, KC_MS_U, KC_BTN2, KC_TRNS, KC_TRNS,
        KC_TRNS,    KC_TRNS, KC_MS_L, KC_MS_D, KC_MS_R, KC_TRNS,
        KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
