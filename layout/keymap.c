@@ -230,27 +230,27 @@ void matrix_scan_user(void) {
     ergodox_right_led_1_off();
     ergodox_right_led_2_off();
     ergodox_right_led_3_off();
+#if defined(SUBPROJECT_infinity) && !defined(VISUALIZER_ENABLED)
+    lcd_backlight_hal_color(0, 0, 0);
+#endif
     switch (layer) {
       // TODO: Make this relevant to the ErgoDox EZ.
         case QWERTY:
-#ifdef SUBPROJECT_infinity
-            lcd_backlight_hal_color(0, 0, 0);
-#endif
             break;
         case SYMB:
-#ifdef SUBPROJECT_infinity
+#if defined(SUBPROJECT_infinity) && !defined(VISUALIZER_ENABLED)
             lcd_backlight_hal_color(5000, 0, 0);
 #endif
             ergodox_right_led_1_on();
             break;
         case MDIA:
-#ifdef SUBPROJECT_infinity
+#if defined(SUBPROJECT_infinity) && !defined(VISUALIZER_ENABLED)
             lcd_backlight_hal_color(0, 5000, 0);
 #endif
             ergodox_right_led_2_on();
             break;
         case GAME:
-#ifdef SUBPROJECT_infinity
+#if defined(SUBPROJECT_infinity) && !defined(VISUALIZER_ENABLED)
             lcd_backlight_hal_color(0, 0, 5000);
 #endif
             ergodox_right_led_3_on();
