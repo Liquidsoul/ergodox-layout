@@ -3,6 +3,10 @@
 #include "action_layer.h"
 #include "keymap_french_osx.h"
 
+#ifdef SUBPROJECT_infinity
+#include "visualizer/lcd_backlight.h"
+#endif
+
 #define QWERTY 0 // qwerty keys
 #define SYMB 1 // qwerty symbols
 #define MDIA 2 // media keys
@@ -229,14 +233,26 @@ void matrix_scan_user(void) {
     switch (layer) {
       // TODO: Make this relevant to the ErgoDox EZ.
         case QWERTY:
+#ifdef SUBPROJECT_infinity
+            lcd_backlight_hal_color(0, 0, 0);
+#endif
             break;
         case SYMB:
+#ifdef SUBPROJECT_infinity
+            lcd_backlight_hal_color(5000, 0, 0);
+#endif
             ergodox_right_led_1_on();
             break;
         case MDIA:
+#ifdef SUBPROJECT_infinity
+            lcd_backlight_hal_color(0, 5000, 0);
+#endif
             ergodox_right_led_2_on();
             break;
         case GAME:
+#ifdef SUBPROJECT_infinity
+            lcd_backlight_hal_color(0, 0, 5000);
+#endif
             ergodox_right_led_3_on();
             break;
         default:
