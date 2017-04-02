@@ -21,4 +21,7 @@ layout:
 prerequisites:
 	brew bundle --no-upgrade
 
-.PHONY: all ez infinity layout
+clean:
+	rm -rf ${BUILD_FOLDER}/.build
+
+.PHONY: all ez infinity layout clean
