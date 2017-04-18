@@ -173,8 +173,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 *                                                                                                                   *
 *********************************************************************************************************************
 */
-// If it accepts an argument (i.e, is a function), it doesn't need KC_.
-// Otherwise, it needs KC_*
 [GAME] = KEYMAP(
         // left hand
         KC_EQL,  KC_1,    KC_2,    KC_3, KC_4, KC_5, KC_6,
