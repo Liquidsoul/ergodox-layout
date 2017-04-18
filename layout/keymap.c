@@ -8,9 +8,9 @@
 #endif
 
 #define QWERTY 0 // qwerty keys
-#define SYMB 1 // qwerty symbols
-#define MDIA 2 // media keys
-#define GAME 3 // games mapping
+#define GAME 1 // games mapping
+#define SYMB 2 // qwerty symbols
+#define MDIA 3 // media keys
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap: Basic QWERTY layer
@@ -180,19 +180,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC,  KC_A,    KC_S,    KC_D, KC_F, KC_G,
         KC_LSFT, KC_Z,    KC_X,    KC_C, KC_V, KC_B, KC_N,
         KC_LCTL, KC_LALT, KC_LGUI, KC_J, KC_M,
-                    KC_NO,   KC_NO,
-                             KC_NO,
+                    KC_TRNS, KC_TRNS,
+                             KC_TRNS,
             KC_SPC, KC_LALT, KC_LCTL,
 
         // right hand
-        KC_NO,    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-        TG(GAME), KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-                  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-        KC_NO,    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-                         KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-            KC_NO,  KC_NO,
-            KC_NO,
-            KC_NO, KC_NO, KC_NO
+        KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        TG(GAME), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        TG(MDIA), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                           KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+            KC_TRNS, KC_TRNS,
+            KC_TRNS,
+            KC_TRNS, KC_TRNS, KC_TRNS
     ),
 };
 
