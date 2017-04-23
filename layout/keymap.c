@@ -25,7 +25,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 * +--------+------+------+------+------+------+ Hyper|         | Hyper+------+------+------+------+------+--------+ *
 * | LShift |   Z  |   X  |   C  |   V  |   B  |      |         |      |   N  |   M  |   ,  |   .  |//Ctrl| RShift | *
 * '-+------+------+------+------+------+------+------'         '------+------+------+------+------+------+------+-' *
-*   | ` /L1|'/Ctrl| Alt  | LGui |   ç  |                                     |   ´  |   `  |   [  |] / L2|  ~L1 |   *
+*   | ` /L1|'/Ctrl| Alt  | LGui |   ç  |                                     |dead ´|dead `|   [  |] / L2|  ~L1 |   *
 *   '------+------+------+------+------'                                     '------+------+------+------+------'   *
 *                                       .------+------.       .------+--------.                                     *
 *                                       |  Alt | LGui |       |  Alt |Ctrl/Esc|                                     *
@@ -72,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * +--------+------+------+------+------+------+      |         |      +------+------+------+------+------+--------+ *
  * |        |   @  |   ^  |   [  |   ]  |   ~  |      |         |      |   &  |   1  |   2  |   3  |   /  |        | *
  * '-+------+------+------+------+------+------+------'         '------+------+------+------+------+------+------+-' *
- *   |      |      |      |      |      |                                     |   0  |   ,  |   .  |   -  |      |   *
+ *   |      |dead ´|dead `|dead ^|      |                                     |   0  |   ,  |   .  |   -  |      |   *
  *   '------+------+------+------+------'                                     '------+------+------+------+------'   *
  *                                       .------+------.       .------+------.                                       *
  *                                       |      |      |       |      |      |                                       *
@@ -87,14 +87,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // SYMBOLS
 [SYMB] = KEYMAP(
        // left hand
-       RESET,   KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_TRNS,
-       KC_TRNS, S(KC_COMM), S(KC_DOT),  S(KC_LBRC), S(KC_RBRC), S(KC_BSLS), KC_TRNS,
-       KC_TRNS, KC_MINS,    S(KC_MINS), S(KC_9),    S(KC_0),    KC_GRV,
-       KC_TRNS, S(KC_2),    S(KC_6),    KC_LBRC,    KC_RBRC,    S(KC_GRV),  KC_TRNS,
-       KC_TRNS, KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
-                                        KC_TRNS,    KC_TRNS,
-                                                    KC_TRNS,
-                                KC_TRNS,KC_TRNS,    KC_TRNS,
+       RESET,   KC_F1,      KC_F2,        KC_F3,      KC_F4,      KC_F5,      KC_TRNS,
+       KC_TRNS, S(KC_COMM), S(KC_DOT),    S(KC_LBRC), S(KC_RBRC), S(KC_BSLS), KC_TRNS,
+       KC_TRNS, KC_MINS,    S(KC_MINS),   S(KC_9),    S(KC_0),    KC_GRV,
+       KC_TRNS, S(KC_2),    S(KC_6),      KC_LBRC,    KC_RBRC,    S(KC_GRV),  KC_TRNS,
+       KC_TRNS, LALT(KC_E), LALT(KC_GRV), LALT(KC_I), KC_TRNS,
+                                          KC_TRNS,    KC_TRNS,
+                                                      KC_TRNS,
+                                KC_TRNS,  KC_TRNS,    KC_TRNS,
        // right hand
        KC_TRNS, KC_F6,   KC_F7, KC_F8,   KC_F9,   KC_F10,  KC_F11,
        KC_TRNS, S(KC_5), KC_P7, KC_P8,   KC_P9,   KC_PAST, KC_F12,
